@@ -23,12 +23,9 @@ public class CreditScoreSaveRequestDTO {
     @JsonFormat(pattern = "dd/MM/yyyy")
     @NotNull
     private Date customerBirthDate;
+
     private double collateral;
-    @Min(11)
-    @Max(11)
-    @NotNull
+
     private long guarantorIdentityNumber;
-    @NotNull
-    private int creditScore;
 
 }
