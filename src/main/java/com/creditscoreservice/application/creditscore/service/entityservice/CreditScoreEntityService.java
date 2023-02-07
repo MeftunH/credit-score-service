@@ -20,7 +20,7 @@ public class CreditScoreEntityService {
     }
 
 
-    public float getCreditScore() {
-        return calculateCreditScore.nextFloat();
+    public int getCreditScore() {
+        return calculateCreditScore.nextInt();
     }
 }

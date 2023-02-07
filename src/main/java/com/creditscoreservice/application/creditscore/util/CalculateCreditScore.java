@@ -12,7 +12,7 @@ public class CalculateCreditScore {
             = new AtomicLong(System.identityHashCode(CalculateCreditScore.class));
     private long state;
     private long inc;
-    private static long streamUniquifier() {
+    private static long streamUniquer() {
         for (;;) {
             long current = streamUniquifier.get();
             long next = current * 181783497276652981L;
@@ -28,7 +28,7 @@ public class CalculateCreditScore {
         nextInt();
     }
     public void seed() {
-        seed(System.nanoTime(), streamUniquifier());
+        seed(System.nanoTime(), streamUniquer());
     }
     public CalculateCreditScore() {
         seed();
@@ -39,7 +39,11 @@ public class CalculateCreditScore {
         state = oldState * MULTIPLIER + inc;
         int xorShifted = (int) (((oldState >>> 18) ^ oldState) >>> 27);
         int rot = (int) (oldState >>> 59);
-        return Integer.rotateRight(xorShifted, rot);
+        int score = ((xorShifted >>> rot) | (xorShifted << (-rot & 31))) % 1500;
+        //positive integer
+        if (score < 0)
+            return nextInt();
+        return score;
     }
     public int nextBits(int bits) {
         return nextInt() >>> (32 - bits);

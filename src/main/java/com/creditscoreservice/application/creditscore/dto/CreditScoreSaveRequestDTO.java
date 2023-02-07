@@ -22,7 +22,7 @@ public class CreditScoreSaveRequestDTO implements Serializable {
     @NotNull
     private Date customerBirthDate;
 
-    private double collateral;
+    private float collateral;
 
     private long guarantorIdentityNumber;
 

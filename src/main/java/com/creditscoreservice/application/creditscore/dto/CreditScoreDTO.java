@@ -10,5 +10,5 @@ import java.io.Serializable;
 @Getter
 @Setter
 public class CreditScoreDTO implements Serializable {
-    private float creditScore;
+    private int creditScore;
 }
