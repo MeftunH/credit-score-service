@@ -22,6 +22,7 @@ public class CreditScoreService {
         CreditScore creditScore = CreditScoreMapper.INSTANCE.convertToCreditScore(creditScoreSaveRequestDTO);
         creditScore.setCreditScore(creditScoreEntityService.getCreditScore());
         _creditScore = creditScore.getCreditScore();
+        saveCreditScore();
         return CreditScoreMapper.INSTANCE.convertToCreditScoreDTO(creditScore);
     }
     private void saveCreditScore() {
