@@ -15,8 +15,8 @@ public class CreditScoreEntityService {
     private final CreditScoreRepository creditScoreRepository;
     private final CalculateCreditScore calculateCreditScore;
 
-    public CreditScore save(CreditScore creditScore) {
-        return creditScoreRepository.save(creditScore);
+    public void save(CreditScore creditScore) {
+         creditScoreRepository.save(creditScore);
     }
 
 
