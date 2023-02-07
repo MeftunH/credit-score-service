@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class CreditScoreService {
 
     private final CreditScoreEntityService creditScoreEntityService;
-    private float _creditScore;
+    private int _creditScore;
 
     public CreditScoreService(CreditScoreEntityService creditScoreEntityService) {
         this.creditScoreEntityService=creditScoreEntityService;
