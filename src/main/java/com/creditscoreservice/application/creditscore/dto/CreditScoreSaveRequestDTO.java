@@ -1,17 +1,15 @@
 package com.creditscoreservice.application.creditscore.dto;
-/* @author - Maftun Hashimli (maftunhashimli@gmail.com)) */
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
+
 @Data
-public class CreditScoreSaveRequestDTO {
+public class CreditScoreSaveRequestDTO implements Serializable {
     @NotNull
     private String customerName;
     @NotNull
@@ -23,12 +21,9 @@ public class CreditScoreSaveRequestDTO {
     @JsonFormat(pattern = "dd/MM/yyyy")
     @NotNull
     private Date customerBirthDate;
+
     private double collateral;
-    @Min(11)
-    @Max(11)
-    @NotNull
+
     private long guarantorIdentityNumber;
-    @NotNull
-    private int creditScore;
 
 }
