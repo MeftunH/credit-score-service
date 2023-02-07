@@ -16,6 +16,6 @@ public class CreditScore {
     private Long id;
 
    @Column(name = "creditScore", nullable = false)
-    private float creditScore;
+    private int creditScore;
 
 }
