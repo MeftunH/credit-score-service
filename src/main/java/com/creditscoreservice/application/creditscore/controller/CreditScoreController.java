@@ -4,6 +4,7 @@ package com.creditscoreservice.application.creditscore.controller;
 import com.creditscoreservice.application.creditscore.dto.CreditScoreDTO;
 import com.creditscoreservice.application.creditscore.dto.CreditScoreSaveRequestDTO;
 import com.creditscoreservice.application.creditscore.service.CreditScoreService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +18,9 @@ public class CreditScoreController {
         this.creditScoreService=creditScoreService;
     }
 
-    @GetMapping
-    public ResponseEntity<CreditScoreDTO> getCreditScore(@RequestBody CreditScoreSaveRequestDTO creditScoreSaveRequestDTO) {
-        CreditScoreDTO creditScoreDTO = creditScoreService.getCreditScore(creditScoreSaveRequestDTO);
+    @PostMapping
+    public ResponseEntity<CreditScoreDTO> saveCreditScore(@RequestBody @Valid CreditScoreSaveRequestDTO creditScoreSaveRequestDTO) {
+        CreditScoreDTO creditScoreDTO = creditScoreService.saveCreditScore(creditScoreSaveRequestDTO);
         return new ResponseEntity<>(creditScoreDTO, HttpStatus.CREATED);
     }
 }

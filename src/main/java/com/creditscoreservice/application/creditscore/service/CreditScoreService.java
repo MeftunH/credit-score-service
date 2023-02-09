@@ -8,25 +8,6 @@ import com.creditscoreservice.application.creditscore.mapper.CreditScoreMapper;
 import com.creditscoreservice.application.creditscore.service.entityservice.CreditScoreEntityService;
 import org.springframework.stereotype.Service;
 
-@Service
-public class CreditScoreService {
-
-    private final CreditScoreEntityService creditScoreEntityService;
-    private int _creditScore;
-
-    public CreditScoreService(CreditScoreEntityService creditScoreEntityService) {
-        this.creditScoreEntityService=creditScoreEntityService;
-    }
-
-    public CreditScoreDTO getCreditScore(CreditScoreSaveRequestDTO creditScoreSaveRequestDTO) {
-        CreditScore creditScore = CreditScoreMapper.INSTANCE.convertToCreditScore(creditScoreSaveRequestDTO);
-        creditScore.setCreditScore(creditScoreEntityService.getCreditScore());
-        _creditScore = creditScore.getCreditScore();
-        return CreditScoreMapper.INSTANCE.convertToCreditScoreDTO(creditScore);
-    }
-    private void saveCreditScore() {
-        CreditScore creditScore = new CreditScore();
-        creditScore.setCreditScore(_creditScore);
-        creditScoreEntityService.save(creditScore);
-    }
+public interface CreditScoreService {
+    CreditScoreDTO saveCreditScore(CreditScoreSaveRequestDTO creditScoreSaveRequestDTO);
 }
