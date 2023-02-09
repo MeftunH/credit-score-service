@@ -11,4 +11,5 @@ import java.io.Serializable;
 @Setter
 public class CreditScoreDTO implements Serializable {
     private int creditScore;
+    private long customerIdentityNumber;
 }
