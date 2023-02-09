@@ -39,7 +39,7 @@ public class CalculateCreditScore {
         state = oldState * MULTIPLIER + inc;
         int xorShifted = (int) (((oldState >>> 18) ^ oldState) >>> 27);
         int rot = (int) (oldState >>> 59);
-        int score = ((xorShifted >>> rot) | (xorShifted << (-rot & 31))) % 1500;
+        int score = ((xorShifted >>> rot) | (xorShifted << (-rot & 31))) % 1900;
         //positive integer
         if (score < 0)
             return nextInt();
