@@ -24,6 +24,6 @@ public class CreditScoreSaveRequestDTO implements Serializable {
 
     private float collateral;
 
-    private long guarantorIdentityNumber;
+    private long suretyIdentityNumber;
 
 }

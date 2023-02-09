@@ -18,9 +18,9 @@ public class CreditScoreController {
         this.creditScoreService=creditScoreService;
     }
 
-    @GetMapping
-    public ResponseEntity<CreditScoreDTO> getCreditScore(@RequestBody @Valid CreditScoreSaveRequestDTO creditScoreSaveRequestDTO) {
-        CreditScoreDTO creditScoreDTO = creditScoreService.getCreditScore(creditScoreSaveRequestDTO);
+    @PostMapping
+    public ResponseEntity<CreditScoreDTO> saveCreditScore(@RequestBody @Valid CreditScoreSaveRequestDTO creditScoreSaveRequestDTO) {
+        CreditScoreDTO creditScoreDTO = creditScoreService.saveCreditScore(creditScoreSaveRequestDTO);
         return new ResponseEntity<>(creditScoreDTO, HttpStatus.CREATED);
     }
 }
