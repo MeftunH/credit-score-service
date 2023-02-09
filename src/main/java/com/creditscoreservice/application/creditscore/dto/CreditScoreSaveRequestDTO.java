@@ -24,7 +24,6 @@ public class CreditScoreSaveRequestDTO implements Serializable {
 
     private float collateral;
     @NotNull
-    @NotBlank
     private long customerIdentityNumber;
     private long suretyIdentityNumber;
 
