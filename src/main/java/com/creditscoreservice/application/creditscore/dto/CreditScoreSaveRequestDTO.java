@@ -1,7 +1,6 @@
 package com.creditscoreservice.application.creditscore.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
@@ -13,10 +12,8 @@ public class CreditScoreSaveRequestDTO implements Serializable {
     @NotNull
     private String customerName;
     @NotNull
-    @NotBlank
     private String customerSurname;
     @NotNull
-    @NotBlank
     private String customerPhoneNumber;
     @JsonFormat(pattern = "dd/MM/yyyy")
     @NotNull
@@ -24,8 +21,17 @@ public class CreditScoreSaveRequestDTO implements Serializable {
 
     private float collateral;
     @NotNull
-    @NotBlank
     private long customerIdentityNumber;
     private long suretyIdentityNumber;
+    private String suretyName;
+
+    private String suretySurname;
+
+    private String suretyPhoneNumber;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private Date suretyBirthDate;
+
+    private String suretyType;
+
 
 }
