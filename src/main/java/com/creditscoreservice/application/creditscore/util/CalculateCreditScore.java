@@ -8,15 +8,15 @@ import java.util.concurrent.atomic.AtomicLong;
 @Service
 public class CalculateCreditScore {
     private static final long MULTIPLIER = 6364136223846793005L;
-    private static final AtomicLong streamUniquifier
+    private static final AtomicLong streamUniquer
             = new AtomicLong(System.identityHashCode(CalculateCreditScore.class));
     private long state;
     private long inc;
     private static long streamUniquer() {
         for (;;) {
-            long current = streamUniquifier.get();
+            long current = streamUniquer.get();
             long next = current * 181783497276652981L;
-            if (streamUniquifier.compareAndSet(current, next))
+            if (streamUniquer.compareAndSet(current, next))
                 return next;
         }
     }
@@ -39,7 +39,7 @@ public class CalculateCreditScore {
         state = oldState * MULTIPLIER + inc;
         int xorShifted = (int) (((oldState >>> 18) ^ oldState) >>> 27);
         int rot = (int) (oldState >>> 59);
-        int score = ((xorShifted >>> rot) | (xorShifted << (-rot & 31))) % 1900;
+        int score = ((xorShifted >>> rot) | (xorShifted << (-rot & 31))) % 1300;
         //positive integer
         if (score < 0)
             return nextInt();
@@ -47,11 +47,5 @@ public class CalculateCreditScore {
     }
     public int nextBits(int bits) {
         return nextInt() >>> (32 - bits);
-    }
-    public float nextFloat() {
-        float score = nextBits(32) / ((float)(1 << 24));
-        if (score < 0)
-            return nextFloat();
-    return score * 10;
     }
 }
