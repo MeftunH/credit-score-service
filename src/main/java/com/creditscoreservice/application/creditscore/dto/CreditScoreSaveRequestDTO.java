@@ -18,20 +18,8 @@ public class CreditScoreSaveRequestDTO implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     @NotNull
     private Date customerBirthDate;
-
-    private float collateral;
     @NotNull
     private long customerIdentityNumber;
-    private long suretyIdentityNumber;
-    private String suretyName;
-
-    private String suretySurname;
-
-    private String suretyPhoneNumber;
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date suretyBirthDate;
-
-    private String suretyType;
 
 
 }
