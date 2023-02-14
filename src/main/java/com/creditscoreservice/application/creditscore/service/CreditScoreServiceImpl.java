@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 public class CreditScoreServiceImpl implements CreditScoreService {
 
     private final CreditScoreEntityService creditScoreEntityService;
-    private int _creditScore;
-    private long _customerIdentityNumber;
 
     public CreditScoreServiceImpl(CreditScoreEntityService creditScoreEntityService) {
         this.creditScoreEntityService=creditScoreEntityService;
@@ -23,15 +21,7 @@ public class CreditScoreServiceImpl implements CreditScoreService {
         CreditScore creditScore = CreditScoreMapper.INSTANCE.convertToCreditScore(creditScoreSaveRequestDTO);
         creditScore.setCreditScore(creditScoreEntityService.getCreditScore());
         creditScore.setCustomerIdentityNumber(creditScoreSaveRequestDTO.getCustomerIdentityNumber());
-        _creditScore = creditScore.getCreditScore();
-        _customerIdentityNumber = creditScore.getCustomerIdentityNumber();
-        saveCreditScore();
-        return CreditScoreMapper.INSTANCE.convertToCreditScoreDTO(creditScore);
-    }
-    private void saveCreditScore() {
-        CreditScore creditScore = new CreditScore();
-        creditScore.setCreditScore(_creditScore);
-        creditScore.setCustomerIdentityNumber(_customerIdentityNumber);
         creditScoreEntityService.save(creditScore);
+        return CreditScoreMapper.INSTANCE.convertToCreditScoreDTO(creditScore);
     }
 }
