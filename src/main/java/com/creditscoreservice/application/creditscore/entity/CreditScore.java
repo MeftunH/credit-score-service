@@ -19,7 +19,7 @@ public class CreditScore {
    @Column(name = "credit_score", nullable = false)
     private int creditScore;
 
-   @Column(name = "customer_identity_number", nullable = false)
-   private long customerIdentityNumber;
+   @Column(name = "customer_identity_no", nullable = false)
+   private long customerIdentityNo;
 
 }

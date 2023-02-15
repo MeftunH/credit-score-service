@@ -20,7 +20,7 @@ public class CreditScoreServiceImpl implements CreditScoreService {
     public CreditScoreDTO saveCreditScore(CreditScoreSaveRequestDTO creditScoreSaveRequestDTO) {
         CreditScore creditScore = CreditScoreMapper.INSTANCE.convertToCreditScore(creditScoreSaveRequestDTO);
         creditScore.setCreditScore(creditScoreEntityService.getCreditScore());
-        creditScore.setCustomerIdentityNumber(creditScoreSaveRequestDTO.getCustomerIdentityNumber());
+        creditScore.setCustomerIdentityNo(creditScoreSaveRequestDTO.getCustomerIdentityNo());
         creditScoreEntityService.save(creditScore);
         return CreditScoreMapper.INSTANCE.convertToCreditScoreDTO(creditScore);
     }
