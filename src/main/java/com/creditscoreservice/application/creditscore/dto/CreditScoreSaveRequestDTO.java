@@ -19,7 +19,7 @@ public class CreditScoreSaveRequestDTO implements Serializable {
     @NotNull
     private Date customerBirthDate;
     @NotNull
-    private long customerIdentityNumber;
+    private long customerIdentityNo;
 
 
 }
