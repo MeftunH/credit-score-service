@@ -46,7 +46,7 @@ customized loan solutions to customers based on their individual financial situa
 
 ## Related Repositories
 
-* [Credit Score Service](https://github.com/MeftunH/credit-score-service)
+** [Find Out My Loan](https://github.com/MeftunH/find-out-my-loan)
 * [Find Out My Loan Frontend](https://github.com/MeftunH/find-out-my-loan-frontend)
 
 ## Credit Score Service
