@@ -15,7 +15,7 @@ public class CreditScoreSaveRequestDTO implements Serializable {
     private String customerSurname;
     @NotNull
     private String customerPhoneNumber;
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     @NotNull
     private Date customerBirthDate;
     @NotNull
